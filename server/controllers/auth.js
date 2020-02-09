@@ -1,5 +1,5 @@
 exports.signup = (req , res) => {
-    console.log("Testing the data")
+    console.log("Req on Body", req.body)
     res.json({
         data: 'You git the base endpoint'
 })

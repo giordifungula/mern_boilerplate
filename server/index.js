@@ -5,12 +5,20 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const app = express()
-
 //route here
 const authRoutes = require('./routes/auth')
 app.use(morgan('dev')) // log requests
 app.use(cors())
 app.use(express.json()) // parse the response into json
+
+mongoose.connect(process.env.DATABASE, {
+    useNewUrlParser:true,
+    useFindAndModify:true,
+    useUnifiedTopology:false,
+    useCreateIndex: true
+})
+.then(()=> console.log('Conneted to DB'))
+.catch( err => console.log('Error on db connection'))
 
 // middleware
 app.use('/api' , authRoutes)  // default route param here
