@@ -1,12 +1,18 @@
 const express =  require('express')
+const morgan = require('morgan')
+const cors = require('cors')
+const mongoose = require('mongoose')
+require('dotenv').config
 
 const app = express()
 
-//imports here
+//route here
 const authRoutes = require('./routes/auth')
+app.use(morgan('dev'))
 
 // middleware
 app.use('/api' , authRoutes)  // default route param here
+
 
 const port = process.env.port || 5000
 
