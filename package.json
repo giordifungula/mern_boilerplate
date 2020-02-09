@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "google-auth": "^0.0.1"
+  }
+}
