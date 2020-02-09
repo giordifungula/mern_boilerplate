@@ -2,11 +2,9 @@ const express =  require('express')
 
 const router = express.Router()
 
-router.get('/signup', (req,res) => {
-    console.log("Testing the data")
-    res.json({
-        data: 'You git the base endpoint'
-    })
-})
+//import controller
+const {signup} = require('../controllers/auth')  //destructure the app
+
+router.get('/signup', signup )
 
 module.exports = router
