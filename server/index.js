@@ -5,6 +5,8 @@ const app = express()
 //imports here
 const authRoutes = require('./routes/auth')
 
+// middleware
+app.use('/api' , authRoutes)  // default route param here
 
 const port = process.env.port || 5000
 
